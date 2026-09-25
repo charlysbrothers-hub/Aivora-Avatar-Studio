@@ -18,18 +18,27 @@ External tools generate media (Gemini, Higgsfield, ElevenLabs). Studio decides w
 |---|---|
 | Frontend | Next.js App Router + TypeScript + Tailwind |
 | Auth + DB + Storage | Supabase project `tsmprljeyszfjnmfzszx` |
-| Hosting | Netlify (`aivora-studio`) |
-| Source | GitHub `Aivora Avatar Studio` |
+| Hosting | Netlify — https://aivora-avatar-studio.netlify.app |
+| Source | GitHub — https://github.com/charlysbrothers-hub/Aivora-Avatar-Studio |
 | Sync model | Authenticated `workspace_snapshots` JSON + relational tables/RLS |
+
+## Live URLs
+
+- **Production:** https://aivora-avatar-studio.netlify.app
+- **Signup:** https://aivora-avatar-studio.netlify.app/signup
+- **Login:** https://aivora-avatar-studio.netlify.app/login
+- **Auth callback:** `/auth/callback` (SSR cookie session via `@supabase/ssr`)
 
 ## Supabase
 
 - **URL:** `https://tsmprljeyszfjnmfzszx.supabase.co`
 - **Org:** Aivora Studio
-- **Project:** Aivora Studio Project
+- **Project:** Aivora Studio Project (`tsmprljeyszfjnmfzszx`, region `us-west-2`)
 - **Email confirmation:** disabled (`mailer_autoconfirm=true`) — users can sign up and enter immediately
+- **Auth site_url:** `https://aivora-avatar-studio.netlify.app`
+- **Redirect allow list:** production Netlify + `localhost:3000` / `127.0.0.1:3000`
 - **RLS:** enabled; rows scoped by `auth.uid()`
-- **Storage bucket:** `aivora-media` (per-user folder = user id)
+- **Storage bucket:** `aivora-media` (private; per-user folder = user id)
 - **Signup trigger:** creates `profiles`, `studio_settings`, canonical **Aivora identity v1**, and Owner team member
 
 ### Core tables

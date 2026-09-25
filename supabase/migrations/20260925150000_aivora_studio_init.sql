@@ -235,11 +235,11 @@ create table if not exists public.team_members (
   created_at timestamptz not null default now()
 );
 
--- Workspace bootstrap on signup
+-- Workspace bootstrap on signup (must be SECURITY DEFINER so auth.users trigger can write)
 create or replace function public.handle_new_user()
 returns trigger
 language plpgsql
-security invoker
+security definer
 set search_path = public
 as $$
 declare
@@ -327,6 +327,7 @@ begin
 
     if t = 'profiles' then
       execute format('create policy %I on public.%I for select to authenticated using ((select auth.uid()) = id)', t||'_select_own', t);
+      execute format('create policy %I on public.%I for insert to authenticated with check ((select auth.uid()) = id)', t||'_insert_own', t);
       execute format('create policy %I on public.%I for update to authenticated using ((select auth.uid()) = id) with check ((select auth.uid()) = id)', t||'_update_own', t);
     else
       execute format('create policy %I on public.%I for select to authenticated using ((select auth.uid()) = user_id)', t||'_select_own', t);

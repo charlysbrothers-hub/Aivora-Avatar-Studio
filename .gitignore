@@ -48,3 +48,6 @@ next-env.d.ts
 
 # Local Netlify folder
 .netlify
+
+# Deno lock (CLI noise; not used by Next app)
+deno.lock

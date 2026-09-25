@@ -2,13 +2,20 @@
 
 Centro de operaciones y **guardián de identidad** de Aivora (creadora virtual cubana con IA).
 
-Para un mapa completo del sistema (ideal para análisis con ChatGPT), lee **[ARCHITECTURE.md](./ARCHITECTURE.md)**.
+Para un mapa completo del sistema (ideal para análisis con ChatGPT u otro LLM), lee **[ARCHITECTURE.md](./ARCHITECTURE.md)** — describe producto, stack, tablas, auth, Identity Lock y flujo end-to-end.
 
-## Stack vivo
+## URLs vivas
 
-- **GitHub:** Aivora Avatar Studio  
-- **Supabase:** [Aivora Studio Project](https://tsmprljeyszfjnmfzszx.supabase.co)  
-- **Netlify:** sitio `aivora-studio`  
+| Servicio | URL |
+|---|---|
+| **App (Netlify)** | https://aivora-avatar-studio.netlify.app |
+| **Signup** | https://aivora-avatar-studio.netlify.app/signup |
+| **GitHub** | https://github.com/charlysbrothers-hub/Aivora-Avatar-Studio |
+| **Supabase** | https://tsmprljeyszfjnmfzszx.supabase.co |
+
+- Org Supabase: **Aivora Studio** · Proyecto: **Aivora Studio Project**
+- Confirmación de email: **desactivada** (signup → entra al instante)
+- Deploy continuo: push a `main` en GitHub → build en Netlify
 
 ## Arranque local
 
